@@ -99,7 +99,7 @@ inductive context.ok : context → Prop
 | nil : context.ok []
 | cons {Γ α} : context.ok Γ → is_type Γ α → context.ok (α :: Γ)
 
-example {Γ e α} (h : has_type Γ e α) : context.ok Γ :=
+lemma context_ok_of_has_type {Γ e α} (h : has_type Γ e α) : context.ok Γ :=
 begin
   induction h,
   repeat {constructor, assumption, constructor, assumption}, 

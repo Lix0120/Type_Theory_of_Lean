@@ -102,7 +102,7 @@ inductive context.ok : context → Prop
 lemma context_ok_of_has_type {Γ e α} (h : has_type Γ e α) : context.ok Γ :=
 begin
   induction h,
-  repeat {constructor, assumption, constructor, assumption}, 
+  repeat {constructor, assumption}, 
   exact context.ok.nil,
   repeat {assumption},
   cases h_x,
